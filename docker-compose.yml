@@ -40,10 +40,8 @@ services:
       target: fineract
     depends_on:
       - fineractmysql
-    expose:
-      - 80
+    ports: "8443:8443"
     environment:
-      - VIRTUAL_PORT=8443
       - VIRTUAL_PROTO=https
       - DRIVERCLASS_NAME=org.drizzle.jdbc.DrizzleDriver
       - PROTOCOL=jdbc
