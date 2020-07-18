@@ -39,11 +39,10 @@ services:
       context: .
       target: fineract
     ports: 
-      - 443:80
+      - 8443:8443
     depends_on:
       - fineractmysql
     environment:
-      - VIRTUAL_PROTO=https
       - DRIVERCLASS_NAME=org.drizzle.jdbc.DrizzleDriver
       - PROTOCOL=jdbc
       - SUB_PROTOCOL=mysql:thin
