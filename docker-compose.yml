@@ -41,9 +41,10 @@ services:
     depends_on:
       - fineractmysql
     expose:
-      - 443
+      - 80
     environment:
-      - VIRTUAL_HOST=/
+      - VIRTUAL_HOST
+      - VIRTUAL_PROTO=https
       - DRIVERCLASS_NAME=org.drizzle.jdbc.DrizzleDriver
       - PROTOCOL=jdbc
       - SUB_PROTOCOL=mysql:thin
