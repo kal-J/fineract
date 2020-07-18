@@ -38,11 +38,12 @@ services:
     build:
       context: .
       target: fineract
-    ports: 
-      - 8443:8443
     depends_on:
       - fineractmysql
+    expose:
+      - 80
     environment:
+      - VIRTUAL_HOST=35.238.109.188
       - DRIVERCLASS_NAME=org.drizzle.jdbc.DrizzleDriver
       - PROTOCOL=jdbc
       - SUB_PROTOCOL=mysql:thin
@@ -56,12 +57,10 @@ services:
       - FINERACT_DEFAULT_TENANTDB_PWD=skdcnwauicn2ucnaecasdsajdnizucawencascdca
 
   # Frontend service
-  community-app:
-    image: openmf/community-app:latest
-    container_name: mifos-ui
-    restart: always
-    ports:
-      - 9090:80
+networks:
+  default:
+    external:
+      name: nginx-proxy
 
 
 # https://issues.apache.org/jira/browse/FINERACT-762
