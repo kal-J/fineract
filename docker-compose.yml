@@ -43,7 +43,7 @@ services:
     expose:
       - 80
     environment:
-      - VIRTUAL_HOST=35.238.109.188
+      - VIRTUAL_HOST=/
       - DRIVERCLASS_NAME=org.drizzle.jdbc.DrizzleDriver
       - PROTOCOL=jdbc
       - SUB_PROTOCOL=mysql:thin
