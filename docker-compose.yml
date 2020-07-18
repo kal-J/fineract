@@ -43,6 +43,7 @@ services:
     ports: 
       - 8443:8443
     environment:
+      - VIRTUAL_HOST=localhost:8443
       - VIRTUAL_PROTO=https
       - DRIVERCLASS_NAME=org.drizzle.jdbc.DrizzleDriver
       - PROTOCOL=jdbc
