@@ -38,13 +38,11 @@ services:
     build:
       context: .
       target: fineract
+    ports: 
+      - 80
     depends_on:
       - fineractmysql
-    ports: 
-      - 8443:8443
     environment:
-      - VIRTUAL_HOST=https://localhost:8443/fineract-provider
-      - VIRTUAL_PROTO=https
       - DRIVERCLASS_NAME=org.drizzle.jdbc.DrizzleDriver
       - PROTOCOL=jdbc
       - SUB_PROTOCOL=mysql:thin
@@ -58,10 +56,7 @@ services:
       - FINERACT_DEFAULT_TENANTDB_PWD=skdcnwauicn2ucnaecasdsajdnizucawencascdca
 
   # Frontend service
-networks:
-  default:
-    external:
-      name: nginx-proxy
+
 
 
 # https://issues.apache.org/jira/browse/FINERACT-762
