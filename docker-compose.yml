@@ -38,7 +38,7 @@ services:
     build:
       context: .
       target: fineract
-    ports: 
+    expose: 
       - 80
     depends_on:
       - fineractmysql
