@@ -39,7 +39,7 @@ services:
       context: .
       target: fineract
     ports: 
-      - 8443:8443
+      - 443:8443
     depends_on:
       - fineractmysql
     environment:
@@ -61,7 +61,7 @@ services:
     container_name: mifos-ui
     restart: always
     ports:
-      - 9090:80
+      - 80:80
 
 
 # https://issues.apache.org/jira/browse/FINERACT-762
