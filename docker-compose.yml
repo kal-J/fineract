@@ -25,9 +25,9 @@ services:
       container_name: mifos-web-app
       restart: always
       environment:
-      - FINERACT_API_URLS=http://localhost:4080
-      - FINERACT_API_URL=http://localhost:4080
-      - FINERACT_API_PROVIDER=http://localhost:4080/fineract-provider/api
+      - FINERACT_API_URLS=http://84.46.253.167:4080
+      - FINERACT_API_URL=http://84.46.253.167:4080
+      - FINERACT_API_PROVIDER=http://84.46.253.167:4080/fineract-provider/api
       - FINERACT_API_VERSION=/v1
       - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
       - MIFOS_DEFAULT_LANGUAGE=en-US
