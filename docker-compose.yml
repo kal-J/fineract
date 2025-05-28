@@ -25,8 +25,8 @@ services:
       container_name: mifos-web-app
       restart: always
       environment:
-      - FINERACT_API_URLS=http://localhost:8080
-      - FINERACT_API_URL=http://localhost:8080
+      - FINERACT_API_URLS=http://localhost:4080
+      - FINERACT_API_URL=http://localhost:4080
       - FINERACT_API_PROVIDER=/fineract-provider/api
       - FINERACT_API_VERSION=/v1
       - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
@@ -48,13 +48,13 @@ services:
       service: fineract
     ports:
       - "9443:8443"
-      - "8080:8080"
+      - "4080:4080"
     depends_on:
       db:
         condition: service_healthy
     environment:
       - FINERACT_SERVER_SSL_ENABLED=false
-      - FINERACT_SERVER_PORT=8080
+      - FINERACT_SERVER_PORT=4080
     env_file:
       - ./config/docker/env/fineract.env
       - ./config/docker/env/fineract-common.env
