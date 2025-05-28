@@ -24,6 +24,16 @@ services:
       image: openmf/web-app:master
       container_name: mifos-web-app
       restart: always
+      environment:
+      - FINERACT_API_URLS=http://localhost:8080
+      - FINERACT_API_URL=http://localhost:8080
+      - FINERACT_API_PROVIDER=/fineract-provider/api
+      - FINERACT_API_VERSION=/v1
+      - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
+      - MIFOS_DEFAULT_LANGUAGE=en-US
+      - MIFOS_SUPPORTED_LANGUAGES=cs-CS,de-DE,en-US,es-MX,fr-FR,it-IT,ko-KO,li-LI,lv-LV,ne-NE,pt-PT,sw-SW
+      - MIFOS_PRELOAD_CLIENTS=true
+      - MIFOS_DEFAULT_CHAR_DELIMITER=,
       ports:
         - 4200:80
 
@@ -38,10 +48,13 @@ services:
       service: fineract
     ports:
       - "9443:8443"
-      - "5000:5000"
+      - "8080:8080"
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      - FINERACT_SERVER_SSL_ENABLED=false
+      - FINERACT_SERVER_PORT=8080
     env_file:
       - ./config/docker/env/fineract.env
       - ./config/docker/env/fineract-common.env
