@@ -21,7 +21,7 @@ version: "3.8"
 services:
 
   community-app:
-      image: openmf/web-app:master
+      image: openmf/community-app:latest
       container_name: mifos-web-app
       restart: always
       environment:
@@ -49,6 +49,7 @@ services:
     ports:
       - "9443:8443"
       - "4080:4080"
+      - "9090:9090"
     depends_on:
       db:
         condition: service_healthy
