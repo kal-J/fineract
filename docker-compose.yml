@@ -25,15 +25,15 @@ services:
       container_name: mifos-web-app
       restart: always
       environment:
-      - FINERACT_API_URLS=http://84.46.253.167:4080
-      - FINERACT_API_URL=http://84.46.253.167:4080
-      - FINERACT_API_PROVIDER=http://84.46.253.167:4080/fineract-provider/api
-      - FINERACT_API_VERSION=/v1
-      - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
-      - MIFOS_DEFAULT_LANGUAGE=en-US
-      - MIFOS_SUPPORTED_LANGUAGES=cs-CS,de-DE,en-US,es-MX,fr-FR,it-IT,ko-KO,li-LI,lv-LV,ne-NE,pt-PT,sw-SW
-      - MIFOS_PRELOAD_CLIENTS=true
-      - MIFOS_DEFAULT_CHAR_DELIMITER=,
+        - FINERACT_API_URLS=http://84.46.253.167:4080
+        - FINERACT_API_URL=http://84.46.253.167:4080
+        - FINERACT_API_PROVIDER=http://84.46.253.167:4080/fineract-provider/api
+        - FINERACT_API_VERSION=/v1
+        - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
+        - MIFOS_DEFAULT_LANGUAGE=en-US
+        - MIFOS_SUPPORTED_LANGUAGES=cs-CS,de-DE,en-US,es-MX,fr-FR,it-IT,ko-KO,li-LI,lv-LV,ne-NE,pt-PT,sw-SW
+        - MIFOS_PRELOAD_CLIENTS=true
+        - MIFOS_DEFAULT_CHAR_DELIMITER=,
       ports:
         - 4200:80
 
