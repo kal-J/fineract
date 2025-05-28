@@ -27,7 +27,7 @@ services:
       environment:
       - FINERACT_API_URLS=http://localhost:4080
       - FINERACT_API_URL=http://localhost:4080
-      - FINERACT_API_PROVIDER=/fineract-provider/api
+      - FINERACT_API_PROVIDER=http://localhost:4080/fineract-provider/api
       - FINERACT_API_VERSION=/v1
       - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
       - MIFOS_DEFAULT_LANGUAGE=en-US
