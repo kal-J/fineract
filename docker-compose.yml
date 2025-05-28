@@ -20,6 +20,13 @@ version: "3.8"
 
 services:
 
+  community-app:
+      image: openmf/web-app:master
+      container_name: mifos-web-app
+      restart: always
+      ports:
+        - 4200:80
+
   db:
     extends:
       file: ./config/docker/compose/mariadb.yml
@@ -31,6 +38,7 @@ services:
       service: fineract
     ports:
       - "9443:8443"
+      - "5000:5000"
     depends_on:
       db:
         condition: service_healthy
