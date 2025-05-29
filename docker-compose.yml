@@ -27,7 +27,7 @@ services:
       environment:
         - FINERACT_API_URLS=https://fineract-api.kwantechug.com
         - FINERACT_API_URL=https://fineract-api.kwantechug.com
-        - FINERACT_API_PROVIDER=https://fineract-api.kwantechug.com/fineract-provider/api
+        - FINERACT_API_PROVIDER=/fineract-provider/api
         - FINERACT_API_VERSION=/v1
         - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
         - MIFOS_DEFAULT_LANGUAGE=en-US
