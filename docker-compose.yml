@@ -19,28 +19,43 @@
 version: "3.8"
 
 services:
-
   community-app:
-      image: openmf/web-app:master
-      container_name: mifos-web-app
-      restart: always
-      environment:
-        - FINERACT_API_URLS=https://fineract-api.kwantechug.com
-        - FINERACT_API_URL=https://fineract-api.kwantechug.com
-        - FINERACT_API_PROVIDER=/fineract-provider/api
-        - FINERACT_API_VERSION=/v1
-        - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
-        - MIFOS_DEFAULT_LANGUAGE=en-US
-        - MIFOS_SUPPORTED_LANGUAGES=cs-CS,de-DE,en-US,es-MX,fr-FR,it-IT,ko-KO,li-LI,lv-LV,ne-NE,pt-PT,sw-SW
-        - MIFOS_PRELOAD_CLIENTS=true
-        - MIFOS_DEFAULT_CHAR_DELIMITER=,
-      ports:
-        - 4200:80
+    image: openmf/web-app:master
+    container_name: mifos-web-app
+    restart: always
+    environment:
+      - FINERACT_API_URLS=https://fineract-api.kwantechug.com
+      - FINERACT_API_URL=https://fineract-api.kwantechug.com
+      - FINERACT_API_PROVIDER=/fineract-provider/api
+      - FINERACT_API_VERSION=/v1
+      - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
+      - MIFOS_DEFAULT_LANGUAGE=en-US
+      - MIFOS_SUPPORTED_LANGUAGES=cs-CS,de-DE,en-US,es-MX,fr-FR,it-IT,ko-KO,li-LI,lv-LV,ne-NE,pt-PT,sw-SW
+      - MIFOS_PRELOAD_CLIENTS=true
+      - MIFOS_DEFAULT_CHAR_DELIMITER=,
+    ports:
+      - 4200:80
 
   db:
     extends:
       file: ./config/docker/compose/mariadb.yml
       service: mariadb
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    env_file:
+      - ${PWD}/config/docker/env/mysql.env
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8308:80"
+    depends_on:
+      db:
+        condition: service_healthy
 
   fineract:
     extends:
