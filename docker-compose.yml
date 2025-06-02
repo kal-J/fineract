@@ -36,26 +36,6 @@ services:
     ports:
       - 4200:80
 
-  db:
-    extends:
-      file: ./config/docker/compose/mariadb.yml
-      service: mariadb
-
-  fineract-phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: fineract-phpmyadmin
-    restart: always
-    env_file:
-      - ${PWD}/config/docker/env/mysql.env
-    environment:
-      - PMA_HOST=db
-      - PMA_PORT=3306
-    ports:
-      - "8308:80"
-    depends_on:
-      db:
-        condition: service_healthy
-
   fineract:
     extends:
       file: ./config/docker/compose/fineract.yml
@@ -64,9 +44,6 @@ services:
       - "9443:8443"
       - "4080:4080"
       - "9090:9090"
-    depends_on:
-      db:
-        condition: service_healthy
     environment:
       - FINERACT_SERVER_SSL_ENABLED=false
       - FINERACT_SERVER_PORT=4080
