@@ -34,3 +34,4 @@ gradleExp/
 .run/
 .java-version
 fineract-db/data
+fineract-server/data
