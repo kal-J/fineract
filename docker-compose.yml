@@ -29,7 +29,7 @@ services:
       - FINERACT_API_PROVIDER=/fineract-provider/api
       - FINERACT_API_VERSION=/v1
       - FINERACT_PLATFORM_TENANT_IDENTIFIER=default
-      - FINERACT_PLATFORM_TENANTS_IDENTIFIER=default,demo
+      - FINERACT_PLATFORM_TENANTS_IDENTIFIER=default,demo,demo2,demo3,demo4
       - MIFOS_DEFAULT_LANGUAGE=en-US
       - MIFOS_SUPPORTED_LANGUAGES=cs-CS,de-DE,en-US,es-MX,fr-FR,it-IT,ko-KO,li-LI,lv-LV,ne-NE,pt-PT,sw-SW
       - MIFOS_PRELOAD_CLIENTS=true
