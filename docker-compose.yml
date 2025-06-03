@@ -51,8 +51,9 @@ services:
       - FINERACT_MANAGEMENT_TRACIING_ENABLED=false
       - FINERACT_MANAGEMENT_METRICS_DISTRIBUTION_HTTP_SERVER_REQUESTS=false
       - FINERACT_SERVER_PORT=4080
+      - FINERACT_EXTERNAL_EVENTS_ENABLED=false
     env_file:
       - ./config/docker/env/fineract.env
       - ./config/docker/env/fineract-common.env
       - ./config/docker/env/fineract-mariadb.env
-      - ./config/docker/env/kafka-client.env
+      #- ./config/docker/env/kafka-client.env
